@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..800&family=Playfair+Display:ital,wght@0,500..900;1,500..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Tiro+Bangla:ital@0;1&display=swap');
+@import "remixicon/fonts/remixicon.css";
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: "Newsreader", "Playfair Display", "Lora", "Merriweather", "Tiro Bangla", Georgia, Cambria, "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", "Hind Siliguri", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Playfair Display", "Newsreader", "Lora", Georgia, serif;
+  --font-editorial: "Newsreader", "Lora", "Merriweather", "Tiro Bangla", Georgia, serif;
+  --font-bangla: "Hind Siliguri", "Tiro Bangla", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --primary: #1d4ed8;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #09090b;
+  --muted: #f4f4f5;
+  --muted-foreground: #52525b;
+  --accent: #f4f4f5;
+  --accent-foreground: #09090b;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #1d4ed8;
+  --radius: 0.375rem;
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card: #121215;
+  --card-foreground: #fafafa;
+  --popover: #121215;
+  --popover-foreground: #fafafa;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #1e1e24;
+  --secondary-foreground: #fafafa;
+  --muted: #1e1e24;
+  --muted-foreground: #a1a1aa;
+  --accent: #1e1e24;
+  --accent-foreground: #fafafa;
+  --destructive: #991b1b;
+  --destructive-foreground: #ffffff;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #3b82f6;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-bangla {
+  font-family: var(--font-bangla);
+}
+
+/* Authentic Newspaper Drop-Cap Styling */
+.news-drop-cap > p:first-of-type::first-letter,
+.news-drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 3.6rem;
+  line-height: 0.82;
+  font-weight: 800;
+  padding-right: 0.65rem;
+  padding-top: 0.15rem;
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   BBC News & International Broadsheet Typography Hierarchy
+   ========================================================================== */
+
+/* 1. Category Eyebrow / Kicker (BBC standard) */
+.news-kicker {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+/* 2. Standfirst / Lead Story Deck (The Guardian & BBC) */
+.news-standfirst {
+  font-family: var(--font-sans);
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.55;
+  font-weight: 400;
+  color: #52525b; /* zinc-600 */
+}
+.dark .news-standfirst {
+  color: #d4d4d8; /* zinc-300 */
+}
+
+/* 3. News Article Crosshead (Subheadings inside story body) */
+.news-crosshead {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--foreground);
+}
+
+/* 4. Article Long-Form Prose Body (NYT & Medium continuous reading standard) */
+.news-prose {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.82;
+  letter-spacing: -0.003em;
+  color: #27272a; /* zinc-800 */
+  word-break: break-word;
+}
+.dark .news-prose {
+  color: #e4e4e7; /* zinc-200 */
+}
+
+/* 5. Bengali Typography Fine-Tuning (Ensures no clipping of Bengali matras / yuktokkhor) */
+.font-bangla, [lang="bn"] {
+  font-family: "Hind Siliguri", "Tiro Bangla", -apple-system, sans-serif;
+  line-height: 1.85 !important;
+}
+
+/* 6. Signature BBC / NYT Editorial Pull-Quote */
+.news-pullquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-left: 4px solid var(--primary);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  background-color: rgba(244, 244, 245, 0.6);
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+.dark .news-pullquote {
+  background-color: rgba(24, 24, 27, 0.5);
+}
+
+
+/* Custom scrollbar for modern dashboards */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(161, 161, 170, 0.7);
+}
+
+/* Financial ticker animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: ticker 35s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Modern Shimmer Skeleton Animations */
+@keyframes shimmerWave {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-card {
+  background: linear-gradient(
+    90deg,
+    #edf2f7 0%,
+    #e8edf2 25%,
+    #f8fafc 50%,
+    #e8edf2 75%,
+    #edf2f7 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerWave 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.dark .shimmer-card {
+  background: linear-gradient(
+    90deg,
+    #18181b 0%,
+    #222227 25%,
+    #2e2e36 50%,
+    #222227 75%,
+    #18181b 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerWave 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Hide scrollbar for clean horizontal nav bars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Custom Autofill styling to match UI theme */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #09090b !important;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px #ffffff;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover, 
+.dark input:-webkit-autofill:focus, 
+.dark input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #fafafa !important;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px #18181b;
+}
+
